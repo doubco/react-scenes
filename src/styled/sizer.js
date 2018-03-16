@@ -7,6 +7,7 @@ export const SizerContainer = styled.div`
   line-height: 16px;
   background: rgba(0, 0, 0, 0.05);
   padding: 8px;
+  font-family: Source Code Pro, Monaco, monospace;
   ${p => !p.visible && `display: none`};
 `;
 
@@ -34,13 +35,14 @@ export const SelectWrapper = styled.div`
     cursor: pointer;
     background: none;
   }
-  float: left;
 `;
 
 export const SizeInput = styled.input`
   width: 56px;
   float: left;
   background: none;
+  margin: 0;
   border: none;
   text-align: center;
+  font-family: Source Code Pro, Monaco, monospace;
 `;
