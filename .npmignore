@@ -6,6 +6,6 @@
 
 *.sublime-workspace
 *.sublime-project
-*.md
+
 .babelrc
 .eslintrc.js

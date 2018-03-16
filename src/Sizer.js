@@ -35,7 +35,7 @@ class Sizer extends Component {
     if (is.string(config.device)) {
       active = config.device;
     }
-    console.log(allDevices, active);
+    // console.log(allDevices, active);
 
     return (
       <SizerContainer visible={config.sizer}>
@@ -60,6 +60,7 @@ class Sizer extends Component {
                   height: 320
                 };
               }
+
               setConfig({ device });
             }}
           >

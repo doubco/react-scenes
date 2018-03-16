@@ -7,18 +7,19 @@ import url from "rollup-plugin-url";
 import pkg from "./package.json";
 
 export default {
-  exports: "named",
   input: "./src/index.js",
   output: [
     {
       file: pkg.main,
       format: "cjs",
-      sourcemap: true
+      sourcemap: true,
+      exports: "named"
     },
     {
       file: pkg.module,
       format: "es",
-      sourcemap: true
+      sourcemap: true,
+      exports: "named"
     }
   ],
   plugins: [

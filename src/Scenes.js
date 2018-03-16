@@ -54,7 +54,7 @@ class Scenes extends Component {
   }
 
   setScene(scene) {
-    console.log(scene);
+    // console.log(scene);
     this.setState({ scene });
     Store.set({ scene });
   }
