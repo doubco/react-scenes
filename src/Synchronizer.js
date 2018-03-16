@@ -1,7 +1,47 @@
+import { Component } from "react";
+
+function isStateless(Component) {
+  return !Component.prototype.render;
+}
+
+const Wrapper = (target, targetProps) => {
+  return class Target extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        states: {}
+      };
+
+      this.setTargetState = this.setTargetState.bind(this);
+    }
+
+    setTargetState(ns) {
+      this.setState({ states: { ...this.state.states, ...ns } });
+    }
+
+    render() {
+      const state = this.state.states;
+      return target({
+        props: targetProps,
+        setState: this.setTargetState,
+        state
+      });
+    }
+  };
+};
+
 export default (
-  Target,
+  target,
   { setViewportState, getViewportState, targetProps }
 ) => {
+  let Target;
+
+  if (isStateless(target)) {
+    Target = Wrapper(target, targetProps);
+  } else {
+    Target = target;
+  }
+
   return class Synchronizer extends Target {
     constructor(props) {
       super(props);

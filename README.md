@@ -168,10 +168,10 @@ export default {
 > Your Component. You can either give your component directly or you can pass a functions.
 
 ```
-target: (props) => {
+target: ({props,state,setState}) => {
   return (
     <div>
-      <Button {...props}>Button</Button>
+      <Button {...props}>{props.title}</Button>
     </div>
 )}
 ```
@@ -284,8 +284,7 @@ controllers.select("primary", [
 
 ##### boolean
 
-> `controllers.boolean(true, true)`
-> _if you set second argument it will include `null` to controller cycle._
+> `controllers.boolean(true, true)` > _if you set second argument it will include `null` to controller cycle._
 
 ##### integer
 
