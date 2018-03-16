@@ -1,8 +1,6 @@
 # React Scenes 🌉
 
-## Introduction
-
-React Scenes is a simple way to create/test your react components inside your app.
+#### React Scenes is a simple way to create/test your react components inside your app.
 
 ![demo](.github/demo.gif)
 
@@ -12,23 +10,9 @@ We tried lots of tools to simplify our in-house react component creation process
 
 ### Installation
 
-#### Basic
-
 `npm install react-scenes --save`
 
-#### Custom
-
-`npm install react-scenes --save`
-
-`npm install react-scenes-cli -g`
-
-after that, inside your app root folder;
-
-`scenes init` or `scenes init --bare`
-
-This will create a `.scenes` folder with `cra` and all necessary files to start immediately.
-
-if you add --bare while initiating, it will only create react-scenes files without `cra` so you can load with your apps router.
+---
 
 ## Usage
 
@@ -61,53 +45,51 @@ export default Library;
 
 #### title `string`
 
-Library Title.
+> Library Title.
 
 #### scenes `array`
 
-Scenes.
+> Scenes.
 
 #### config `object`
 
-##### panel `object`
+> ##### panel `object`
 
-Default value of panel position.
+> Default value of panel position.
 
-`panel: {position: : "right"}`
-`// left, right, top, bottom`
+> `panel: {position: : "right"}`
 
-##### ui `boolean`
+    `// left, right, top, bottom`
 
-Default value of UI Visibility.
-`ui: true`
+> ##### ui `boolean`
 
-##### sizer `boolean`
+> Default value of UI Visibility. `ui: true`
 
-Default value of Viewport Sizer Visibility.
-`sizer: true`
+> ##### sizer `boolean`
 
-##### caching `boolean`
+> Default value of Viewport Sizer Visibility. `sizer: true`
 
-Default value of State Recording.
-`caching: true`
+> ##### caching `boolean`
 
-##### device `string|object`
+> Default value of State Recording. `caching: true`
 
-Default value or Viewport Device or Size.
+> ##### device `string|object`
 
-`device: "iphonex"`
+> Default value or Viewport Device or Size.
 
-Other pre-defined devices: iphonex, iphone8p, iphone8, iphonese,ipadpro, ipadprol, ipad, ipadl, pixel2
+> `device: "iphonex"`
 
-_PS: "l" for landscape_
+> Other pre-defined devices: iphonex, iphone8p, iphone8, iphonese,ipadpro, ipadprol, ipad, ipadl, pixel2
 
-or
+> _PS: "l" for landscape_
 
-`device: {width: 320, height: 320, unit: "px"}`
+> or
+
+> `device: {width: 320, height: 320, unit: "px"}`
 
 #### frame `object`
 
-We use [react-frame-component](https://github.com/ryanseddon/react-frame-component) for wrapping your components, you can set its options in here.
+> We use [react-frame-component](https://github.com/ryanseddon/react-frame-component) for wrapping your components, you can set its options in here.
 
 ```
 frame : {
@@ -138,19 +120,21 @@ frame : {
 
 #### actions `array`
 
-_check for more: custom actions_
+> _check for more: custom actions_
 
 #### panels `array`
 
-_check for more: custom panels_
+> _check for more: custom panels_
 
 #### devices `array`
 
-_check for more: custom devices_
+> _check for more: custom devices_
+
+---
 
 ### Scene
 
-Example scene
+> Example scene
 
 ```
 import { controllers } from "react-scenes";
@@ -178,12 +162,12 @@ export default {
 
 #### title `string` `required`
 
-Title of your component.  
-You can also make titles nested like **Buttons>Normal**.
+> Title of your component.  
+> You can also make titles nested like **Buttons>Normal**.
 
 #### target `React Component or function` `required`
 
-Your Component. You can either give your component directly or you can pass a functions.
+> Your Component. You can either give your component directly or you can pass a functions.
 
 ```
 target: (props) => {
@@ -196,40 +180,40 @@ target: (props) => {
 
 #### controllers `array`
 
-All the controllers your component need. They will be passed to your component as their props.
+> All the controllers your component need. They will be passed to your component as their props.
 
 #### events `array`
 
-Events you want to track.
+> Events you want to track.
 
 #### options `object`
 
-Two options are available. `theme` and `centered` (makes component centered in viewport with flexbox).
+> Two options are available. `theme` and `centered` (makes component centered in viewport with flexbox).
 
 #### docs `string`
 
-Component documentation or notes.
+> Component documentation or notes.
 
 #### displayName `string`
 
-Sometimes displayName could be different then what it should be, you can use this if your component name is wrong in Code Panel.
+> Sometimes displayName could be different then what it should be, you can use this if your component name is wrong in Code Panel.
 
 #### stylesheet `string`
 
-Use this to pass any css to components iframe.
+> Use this to pass any css to components iframe.
 
 #### styleClassNames `array`
 
-Use this if you import your css into your js file (webpack).
+> Use this if you import your css into your js file (webpack).
 
-Import your css like,
+> Import your css like,
 
 ```
 import style from "./style.css"
 style.className = "my-style"
 ```
 
-then add all classNames you need to this propery.
+> then add all classNames you need to this propery.
 
 ---
 
@@ -248,21 +232,21 @@ You can add custom actions into `config` as `actions` _check for more: custom ac
 
 #### Toggle UI Visibility 🕶
 
-Toggles ui elements from scenes. (scene picker, panels etc.)
+> Toggles ui elements from scenes. (scene picker, panels etc.)
 
 #### State Recording ⏸
 
-When state recording is on all controllers data will be cached on local storge for easy testing.
+> When state recording is on all controllers data will be cached on local storge for easy testing.
 
 #### Viewport Sizing 📐
 
-You can change viewport to known devices and you can enter custom width and height.
+> You can change viewport to known devices and you can enter custom width and height.
 
-PS: _check for more: custom devices_
+> PS: _check for more: custom devices_
 
 #### Panel Positioning ➡️
 
-You can change your panel position on the fly or you can set your default panel postion inside your library `config`.
+> You can change your panel position on the fly or you can set your default panel postion inside your library `config`.
 
 ---
 
@@ -281,17 +265,17 @@ We provide 10 default controllers; `text`,`textarea`,`select`,`boolean`,`integer
 
 ##### text
 
-`controllers.text("Hello World")`
+> `controllers.text("Hello World")`
 
 ##### textarea
 
-`controllers.textarea("Hello \n World")`
+> `controllers.textarea("Hello \n World")`
 
 ##### select
 
-`controllers.select("primary", ["primary", "destructive"])`
+> `controllers.select("primary", ["primary", "destructive"])`
 
-or
+or you can add as key,value
 
 ```
 controllers.select("primary", [
@@ -302,43 +286,44 @@ controllers.select("primary", [
 
 ##### boolean
 
-`controllers.boolean(true)`
+> `controllers.boolean(true, true)`
+> _if you set second argument it will include `null` to controller cycle._
 
 ##### integer
 
-`controllers.integer(42)`
+> `controllers.integer(42)`
 
 ##### float
 
-`controllers.float(42.1)`
+> `controllers.float(42.1)`
 
 ##### range
 
-`controllers.range(42.1)`
+> `controllers.range(42.1)`
 
 ##### object
 
-`controllers.object({foo:"bar"})`
+> `controllers.object({foo:"bar"})`
 
 ##### array
 
-`controllers.array([1,2,3])`
+> `controllers.array([1,2,3])`
 
 ##### color
 
-`controllers.color("#000","hex" // hex, rgb, rgba)`
+> `controllers.color("#000","hex" // hex, rgb, rgba)`
 
 #### Docs 📌
 
-Docs are can be component documentation or any other notes. (markdown supported).
+> Docs are can be component documentation or any other notes. (markdown supported).
 
 #### Events 🚀
 
-Track your components events, just add event props to your scenes as an array.
+> Track your components events, just add event props to your scenes as an array.
 
 #### Code 🤓
 
-This converts your components code to string for easy sharing.
+> This converts your components code to string for easy sharing.
 
 ---
 
