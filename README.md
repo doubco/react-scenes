@@ -53,27 +53,25 @@ export default Library;
 
 #### config `object`
 
-> ##### panel `object`
+##### panel `object`
 
 > Default value of panel position.
 
-> `panel: {position: : "right"}`
+> `panel: {position: : "right"}` `// left, right, top, bottom`
 
-    `// left, right, top, bottom`
-
-> ##### ui `boolean`
+##### ui `boolean`
 
 > Default value of UI Visibility. `ui: true`
 
-> ##### sizer `boolean`
+##### sizer `boolean`
 
 > Default value of Viewport Sizer Visibility. `sizer: true`
 
-> ##### caching `boolean`
+##### caching `boolean`
 
 > Default value of State Recording. `caching: true`
 
-> ##### device `string|object`
+##### device `string|object`
 
 > Default value or Viewport Device or Size.
 
