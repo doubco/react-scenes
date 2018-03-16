@@ -1,7 +1,8 @@
 {
   "name": "react-scenes",
   "version": "1.0.1",
-  "description": "React Scenes is a simple way to create/test your react components inside your app.",
+  "description":
+    "React Scenes is a simple way to create/test your react components inside your app.",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "scripts": {
@@ -38,10 +39,8 @@
     "styled-components": "^3.2.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-env": "^2.4.1",
     "babel-eslint": "^8.2.1",
-    "babel-loader": "^7.1.4",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-styled-components": "^1.5.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
