@@ -2,7 +2,7 @@
 
 #### React Scenes is a simple way to create/test your react components inside your app.
 
-![demo](.github/demo.gif)
+![demo](https://raw.githubusercontent.com/doubco/react-scenes/master/.github/demo.gif)
 
 ### Why?
 
