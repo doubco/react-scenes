@@ -46,11 +46,11 @@ class Library extends Component {
     return (
       <Scenes
         title="🌉 My Scenes"
-        config={{
+        config={ {
           panel: {
             position: "right"
           }
-        }}
+        } }
         scenes={Object.keys(scenes).map(key => scenes[key])}
       />
     );
