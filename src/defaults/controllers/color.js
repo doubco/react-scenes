@@ -26,6 +26,7 @@ const ColorInput = styled.div`
   top: 44px;
   width: 100%;
   left: 0;
+  z-index: 99;
   ${p => !p.visible && `display: none`};
   .chrome-picker {
     box-shadow: none !important;
