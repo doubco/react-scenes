@@ -12,6 +12,23 @@ We tried lots of tools to simplify our in-house react component creation process
 
 `npm install react-scenes --save`
 
+#### Custom Installation
+
+install cli for react-scenes
+
+`npm install react-scenes-cli -g`
+
+then on your app root folder
+
+`react-scenes-cli -l "My Scenes"`
+
+this will create an entire seperate app with CRA and all dependencies.
+
+`react-scenes-cli -l "My Scenes" --bare`
+this will only generate template files.
+
+PS: both will install react-scenes from npm.
+
 ---
 
 ## Usage
