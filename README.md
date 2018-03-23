@@ -4,6 +4,8 @@
 
 ![demo](https://raw.githubusercontent.com/doubco/react-scenes/master/.github/demo.gif)
 
+[Live Demo](https://doubco.github.io/react-scenes/)
+
 ### Why?
 
 We tried lots of tools to simplify our in-house react component creation process, but somehow nothing feel right. React Scenes is more simple, easy to use and flexible. (plus built-in support for [styled-components](http://styled-components.com))
