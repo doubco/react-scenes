@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Scenes } from "react-scenes";
 
 import buttonScene from "./scenes/button";
+import helloScene from "./scenes/hello";
 
 const initialContent = `<!DOCTYPE html>
 <html>
@@ -56,7 +57,7 @@ class Library extends Component {
       <Scenes
         title="🌄 My Scenes"
         config={config}
-        scenes={[buttonScene]}
+        scenes={[helloScene, buttonScene]}
         frame={frame}
         actions={actions}
         panels={panels}

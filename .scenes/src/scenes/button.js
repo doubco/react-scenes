@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { controllers } from "react-scenes";
 
 import Button from "../components/button";
