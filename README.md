@@ -20,11 +20,11 @@ install cli for react-scenes
 
 then on your app root folder
 
-`react-scenes-cli -l "My Scenes"`
+`setReactScenes -l "My Scenes"`
 
 this will create an entire seperate app with CRA and all dependencies.
 
-`react-scenes-cli -l "My Scenes" --bare`
+`setReactScenes -l "My Scenes" --bare`
 this will only generate template files.
 
 PS: both will install react-scenes from npm.
