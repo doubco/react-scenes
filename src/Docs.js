@@ -32,7 +32,7 @@ class Docs extends Component {
     return (
       <DocsContainer>
         {docs && (
-          <span
+          <div
             dangerouslySetInnerHTML={{
               __html: marked(docs, {
                 renderer: renderer
