@@ -32,7 +32,12 @@ class Frame extends Component {
   }
 
   updateStyles() {
-    const { styleClassNames, stylesheet } = this.props;
+    const {
+      styleClassNames,
+      stylesheet,
+      injectGlobalStylesheets,
+      injectStyledComponentsStylesheets
+    } = this.props;
 
     let styles = [];
 
@@ -49,11 +54,20 @@ class Frame extends Component {
       }
     }
 
+    if (injectGlobalStylesheets) {
+      let globalStyles = Array.from(document.getElementsByTagName("style"));
+      for (let style of globalStyles) {
+        styles.push(d2s(style));
+      }
+    }
+
     if (stylesheet) {
       styles.push(`<style>${stylesheet}</style>`);
     }
 
-    styles.push(d2s(target));
+    if (injectStyledComponentsStylesheets) {
+      styles.push(d2s(target));
+    }
 
     this.setState({ styles });
   }
@@ -93,6 +107,8 @@ class Frame extends Component {
 
     delete frameProps.stylesheet;
     delete frameProps.styleClassNames;
+    delete frameProps.injectStyledComponentsStylesheets;
+    delete frameProps.injectGlobalStylesheets;
 
     return (
       <StyleSheetManager target={target}>

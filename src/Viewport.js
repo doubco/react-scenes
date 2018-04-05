@@ -172,24 +172,6 @@ class Viewport extends Component {
         </ViewportSize>
       </FrameContainer>
     );
-
-    // return (
-    //   <ViewportContainer
-    //     ready={ready}
-    //     device={config.device}
-    //     devices={allDevices}
-    //     id={`scenes-viewport-${_id}`}
-    //   >
-    //     <ViewportWrapper centered={centered}>
-    //       <TargetWrapper>
-    //         <Target {...targetProps} />
-    //       </TargetWrapper>
-    //       <ViewportSize visible={isSizeVisible}>
-    //         {width}x{height}
-    //       </ViewportSize>
-    //     </ViewportWrapper>
-    //   </ViewportContainer>
-    // );
   }
 }
 

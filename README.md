@@ -135,6 +135,18 @@ frame : {
 };
 ```
 
+plus on some rare cases you may want to inject parent page's stylesheets so just add below to `frame` property.
+
+```
+injectGlobalStylesheets: true
+```
+
+and also if you use `styled-components` add below to `frame` property to inject component style to iframe.
+
+```
+injectStyledComponentsStylesheets: true
+```
+
 #### actions `array`
 
 > _check for more: custom actions_
@@ -230,7 +242,7 @@ import style from "./style.css"
 style.className = "my-style"
 ```
 
-> then add all classNames you need to this propery.
+> then add all classNames you need to this property.
 
 ---
 
