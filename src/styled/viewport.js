@@ -7,40 +7,24 @@ const device = (d, devices) => {
   return {};
 };
 
-// export const ViewportContainer = styled.div`
-//   position: relative;
-//   margin: auto;
-//   width: 100%;
-//   height: 100%;
+export const ViewportContainer = styled.div`
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+`;
 
-//   ${p => {
-//     const { width, height, unit } = device(p.device, p.devices);
-//     if (width && height) {
-//       return `
-//         width: ${width}${unit || "px"};
-//         height: ${height}${unit || "px"}
-//       `;
-//     }
-//   }};
-
-//   ${p =>
-//     p.device &&
-//     `
-//     border: 1px solid rgba(127,127,127,0.5)
-//   `};
-// `;
-
-// export const ViewportWrapper = styled.div`
-//   position: relative;
-//   margin: auto;
-//   width: 100%;
-//   height: 100%;
-//   ${p =>
-//     p.centered &&
-//     `
-//      display: flex;
-//     `};
-// `;
+export const ViewportWrapper = styled.div`
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  ${p =>
+    p.centered &&
+    `
+     display: flex;
+    `};
+`;
 
 export const FrameContainer = styled.div`
   position: relative;

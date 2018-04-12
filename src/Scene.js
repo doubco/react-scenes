@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 import Panel from "./Panel";
 import Viewport from "./Viewport";
+import FramelessViewport from "./FramelessViewport";
 
 import stringify from "./helpers/stringify";
 import { Store } from "./helpers/store";
 
 import { SceneContainer, PanelWrapper, ViewportWrapper } from "./styled/scene";
 
-/*globals 
+/*globals
 setTimeout
 clearTimeout
 */
@@ -178,7 +179,7 @@ class Scene extends Component {
   }
 
   render() {
-    const { config, frame, panels, _id } = this.props;
+    const { config, frame, panels, _id, frameless } = this.props;
     const { size, options, ready } = this.state;
 
     const targetProps = this.targetProps();
@@ -216,17 +217,26 @@ class Scene extends Component {
           size={size}
           ui={config.ui}
         >
-          <Viewport
-            key={`viewport-${_id}`}
-            {...this.props}
-            centered={options.centered}
-            targetProps={targetProps}
-            setOptions={setOptions}
-            setTimer={setTimer}
-            clearTimer={clearTimer}
-            frame={frame}
-            timer={this.timer}
-          />
+          {frameless ? (
+            <FramelessViewport
+              {...this.props}
+              key={`viewport-${_id}`}
+              centered={options.centered}
+              targetProps={targetProps}
+            />
+          ) : (
+            <Viewport
+              {...this.props}
+              key={`viewport-${_id}`}
+              centered={options.centered}
+              targetProps={targetProps}
+              setOptions={setOptions}
+              setTimer={setTimer}
+              clearTimer={clearTimer}
+              frame={frame}
+              timer={this.timer}
+            />
+          )}
         </ViewportWrapper>
       </SceneContainer>
     ) : null;

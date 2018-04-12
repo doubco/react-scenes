@@ -33,8 +33,10 @@ class Code extends Component {
     let code = "";
 
     try {
-      code = stringify(target(targetProps), { depthLim: 20 });
-    } catch (e) {}
+      code = stringify(target({ props: targetProps }), { depthLim: 20 });
+    } catch (e) {
+      console.log("Code stringify error: ", e);
+    }
 
     if (code == "__UnknownType" || code == "") {
       code = stringify(<Tag {...targetProps} />, { depthLim: 20 });
