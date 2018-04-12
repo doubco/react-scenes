@@ -8,10 +8,10 @@ setTimeout
 document
 */
 
-let target;
+let targetDOM;
 
 if (typeof document !== "undefined") {
-  target = document.createElement("div");
+  targetDOM = document.createElement("div");
 }
 
 const d2s = node => {
@@ -66,7 +66,7 @@ class Frame extends Component {
     }
 
     if (injectStyledComponentsStylesheets) {
-      styles.push(d2s(target));
+      styles.push(d2s(targetDOM));
     }
 
     this.setState({ styles });
@@ -111,7 +111,7 @@ class Frame extends Component {
     delete frameProps.injectGlobalStylesheets;
 
     return (
-      <StyleSheetManager target={target}>
+      <StyleSheetManager target={targetDOM}>
         <FrameComponent {...frameProps}>{this.props.children}</FrameComponent>
       </StyleSheetManager>
     );
