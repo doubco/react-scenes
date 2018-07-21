@@ -1,6 +1,8 @@
 import { Component } from "react";
 
 function isStateless(Component) {
+  if (!Component) return false;
+  if (!Component.prototype) return false;
   return !Component.prototype.render;
 }
 
