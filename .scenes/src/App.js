@@ -22,7 +22,7 @@ const initialContent = `<!DOCTYPE html>
     html {
       box-sizing: border-box;
     }
-    
+
     body {
       margin:0;
       padding:0;
@@ -39,7 +39,8 @@ let frame;
 
 frame = {
   initialContent,
-  mountTarget: "#frame"
+  mountTarget: "#frame",
+  injectStyledComponentsStylesheets: true
 };
 
 let panels = [];

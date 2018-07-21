@@ -2,13 +2,14 @@ import { controllers } from "react-scenes";
 
 import Button from "../components/button";
 
-const docs = `## Button 
+const docs = `## Button
   I'm a button.
 `;
 
 export default {
   title: "Buttons>Default",
   target: Button,
+  frameless: true,
   controllers: [
     {
       key: "title",
