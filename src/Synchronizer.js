@@ -1,55 +1,52 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
-function isStateless(Component) {
-  if (!Component) return false;
-  if (!Component.prototype) return false;
-  return !Component.prototype.render;
-}
+class TargetComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      states: {}
+    };
 
-const Wrapper = (target, targetProps) => {
-  return class Target extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        states: {}
-      };
+    this.setTargetState = this.setTargetState.bind(this);
+  }
 
-      this.setTargetState = this.setTargetState.bind(this);
-    }
+  setTargetState(ns) {
+    this.setState({ states: { ...this.state.states, ...ns } });
+  }
 
-    setTargetState(ns) {
-      this.setState({ states: { ...this.state.states, ...ns } });
-    }
+  get isStateless() {
+    return !(
+      this.target &&
+      this.target.prototype &&
+      this.target.prototype.render
+    );
+  }
 
-    render() {
-      const state = this.state.states;
-      return target({
-        props: targetProps,
+  render() {
+    const state = this.state.states;
+    if (this.isStateless) {
+      return this.target({
+        props: this.targetProps,
         setState: this.setTargetState,
         state
       });
+    } else {
+      const Target = this.target;
+      return <Target {...this.targetProps} />;
     }
-  };
-};
+  }
+}
 
 export default (
   target,
   { setViewportState, getViewportState, targetProps }
 ) => {
-  let Target;
-
-  if (isStateless(target)) {
-    Target = Wrapper(target, targetProps);
-  } else {
-    Target = target;
-  }
-
-  return class Synchronizer extends Target {
+  return class Synchronizer extends TargetComponent {
     constructor(props) {
       super(props);
-
+      this.target = target;
+      this.targetProps = targetProps;
       this.state = { ...this.state, ...getViewportState() };
-      // setViewportState(this.state);
     }
 
     componentDidMount() {
