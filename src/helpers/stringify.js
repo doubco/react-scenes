@@ -1,5 +1,5 @@
-import is from "is";
 import React from "react";
+import is from "./is";
 
 const MAX_DEPTH = 20;
 

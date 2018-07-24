@@ -14,7 +14,7 @@ export const CodeContainer = styled.div`
       background: none !important;
     }
     & > code {
-      font-size: 13px;
+      font-size: 12px;
     }
   }
 `;

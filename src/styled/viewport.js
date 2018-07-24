@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import is from "is";
+import is from "../helpers/is";
 
 const device = (d, devices) => {
   if (is.object(d)) return d;

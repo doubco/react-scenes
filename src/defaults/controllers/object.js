@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import is from "is";
+import is from "../../helpers/is";
 
 import stringify from "../../helpers/stringify";
 

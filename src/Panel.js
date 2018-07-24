@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import is from "is";
+import is from "./helpers/is";
 
 import { Store } from "./helpers/store";
 

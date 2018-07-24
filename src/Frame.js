@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import is from "is";
+import is from "./helpers/is";
 import FrameComponent from "react-frame-component";
 import { StyleSheetManager } from "styled-components";
 
@@ -69,6 +69,9 @@ class Frame extends Component {
       styles.push(d2s(targetDOM));
     }
 
+    // clean html tags
+    styles = styles.map(s => s.replace(/<[^>]*>/g, ""));
+
     this.setState({ styles });
   }
 
@@ -93,7 +96,7 @@ class Frame extends Component {
       <Fragment>
         {styles.map((style, idx) => {
           return (
-            <div
+            <style
               id={`component-styles-${idx}`}
               key={idx}
               dangerouslySetInnerHTML={{ __html: style }}

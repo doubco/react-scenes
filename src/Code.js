@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import is from "is";
+
 import copy from "clipboard-copy";
 import SyntaxHighlighter, {
   registerLanguage
@@ -35,7 +35,7 @@ class Code extends Component {
     try {
       code = stringify(target({ props: targetProps }), { depthLim: 20 });
     } catch (e) {
-      console.log("Code stringify error: ", e);
+      // console.log("Code stringify error: ", e);
     }
 
     if (code == "__UnknownType" || code == "") {
