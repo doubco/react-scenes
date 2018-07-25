@@ -105,9 +105,9 @@ class Scene extends Component {
   }
 
   targetProps() {
-    const { controllers, events = [] } = this.props;
+    const { controllers, events = [], theme } = this.props;
 
-    let props = { ...this.state.props };
+    let props = { theme, ...this.state.props };
 
     events.forEach(key => {
       props[key] = e => {

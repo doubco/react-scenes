@@ -80,7 +80,7 @@ class Scenes extends Component {
   }
 
   render() {
-    const { title, frame, actions, panels, devices } = this.props;
+    const { title, frame, actions, panels, devices, theme } = this.props;
     const { size, ready, config } = this.state;
     const scenes = this.scenes();
     const scene = this.getScene(this.state.scene);
@@ -108,6 +108,7 @@ class Scenes extends Component {
               key={_id}
               {...scene}
               _id={_id}
+              theme={theme}
               config={config}
               scenes={scenes}
               setScene={this.setScene}
