@@ -27,7 +27,11 @@ class Scenes extends Component {
     };
 
     this.state = {
-      scene: Store.get("scene") ? Store.get("scene") : scenes.length ? 0 : null,
+      scene: Store.get("scene")
+        ? Store.get("scene")
+        : scenes.length
+          ? this.scenes()[0]._id
+          : null,
       size: 240,
       config: storedConfig,
       ready: false
@@ -53,7 +57,13 @@ class Scenes extends Component {
   }
 
   getScene(scene) {
-    return this.scenes().find(({ _id }) => _id == scene);
+    let s = this.scenes().find(({ _id }) => _id == scene);
+
+    if (s) {
+      return s;
+    }
+
+    return this.scenes()[0] || {};
   }
 
   setScene(scene) {
