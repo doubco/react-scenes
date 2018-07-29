@@ -41,7 +41,9 @@ class Scenes extends Component {
 
     if (this.props.scenes) {
       scenes = this.props.scenes.slice().map((scene, idx) => {
-        scene._id = idx;
+        if (!scene._id) {
+          scene._id = idx;
+        }
         return scene;
       });
     }
