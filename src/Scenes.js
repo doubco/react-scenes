@@ -87,7 +87,7 @@ class Scenes extends Component {
     const { size, ready, config } = this.state;
     const scenes = this.scenes();
     const scene = this.getScene(this.state.scene);
-    const _id = `scene-${this.state.scene}`;
+    const _id = `scene-${scene._id}`;
 
     if (!ready) return null;
 
