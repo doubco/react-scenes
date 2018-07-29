@@ -53,7 +53,7 @@ class Scenes extends Component {
   }
 
   getScene(scene) {
-    return this.scenes()[scene];
+    return this.scenes().find(({ _id }) => _id == scene);
   }
 
   setScene(scene) {
