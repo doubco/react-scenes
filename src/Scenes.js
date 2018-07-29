@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Store } from "./helpers/store";
+import slugify from "./helpers/slugify";
 
 import Scene from "./Scene";
 import Picker from "./Picker";
@@ -42,7 +43,7 @@ class Scenes extends Component {
     if (this.props.scenes) {
       scenes = this.props.scenes.slice().map((scene, idx) => {
         if (!scene._id) {
-          scene._id = idx;
+          scene._id = scene.title ? slugify(scene.title) : idx;
         }
         return scene;
       });
