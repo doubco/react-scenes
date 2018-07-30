@@ -5,5 +5,6 @@ require
 
 module.exports = {
   Scenes: require("./Scenes"),
-  controllers: require("./defaults/controllers")
+  controllers: require("./defaults/controllers"),
+  Viewport: require("./RouteViewport")
 };

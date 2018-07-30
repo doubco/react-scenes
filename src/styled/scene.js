@@ -9,6 +9,21 @@ const bg = {
   black: "#000"
 };
 
+export const RouteViewportWrapper = styled.div`
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+  }
+`;
+
 export const SceneContainer = styled.div`
   width: 100%;
   height: 100%;

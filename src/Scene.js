@@ -3,11 +3,17 @@ import React, { Component } from "react";
 import Panel from "./Panel";
 import Viewport from "./Viewport";
 import FramelessViewport from "./FramelessViewport";
+import RouteViewport from "./RouteViewport";
 
 import stringify from "./helpers/stringify";
 import { Store } from "./helpers/store";
 
-import { SceneContainer, PanelWrapper, ViewportWrapper } from "./styled/scene";
+import {
+  SceneContainer,
+  PanelWrapper,
+  ViewportWrapper,
+  RouteViewportWrapper
+} from "./styled/scene";
 
 /*globals
 setTimeout
@@ -179,18 +185,19 @@ class Scene extends Component {
   }
 
   render() {
-    const { config, frame, panels, _id, frameless } = this.props;
+    const { config, frame, panels, _id, route, type = "iframe" } = this.props;
     const { size, options, ready } = this.state;
 
     const targetProps = this.targetProps();
     const events = this.events();
+
+    console.log(targetProps);
 
     const set = this.set;
     const setOptions = this.setOptions;
     const setTimer = this.setTimer;
     const clearTimer = this.clearTimer;
     const reset = this.reset;
-
     return ready ? (
       <SceneContainer theme={options.theme} position={config.panel.position}>
         <PanelWrapper
@@ -217,14 +224,23 @@ class Scene extends Component {
           size={size}
           ui={config.ui}
         >
-          {frameless ? (
+          {type == "route" &&
+            route && (
+              <RouteViewportWrapper>
+                <iframe src={route} />
+              </RouteViewportWrapper>
+            )}
+
+          {type == "framless" && (
             <FramelessViewport
               {...this.props}
               key={`viewport-${_id}`}
               centered={options.centered}
               targetProps={targetProps}
             />
-          ) : (
+          )}
+
+          {type == "iframe" && (
             <Viewport
               {...this.props}
               key={`viewport-${_id}`}
