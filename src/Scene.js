@@ -185,13 +185,13 @@ class Scene extends Component {
   }
 
   render() {
-    const { config, frame, panels, _id, route, type = "iframe" } = this.props;
+    const { config, frame, panels, _id, route, type = "default" } = this.props;
     const { size, options, ready } = this.state;
 
     const targetProps = this.targetProps();
     const events = this.events();
 
-    console.log(targetProps);
+    console.log(type);
 
     const set = this.set;
     const setOptions = this.setOptions;
@@ -231,7 +231,7 @@ class Scene extends Component {
               </RouteViewportWrapper>
             )}
 
-          {type == "framless" && (
+          {type == "frameless" && (
             <FramelessViewport
               {...this.props}
               key={`viewport-${_id}`}
@@ -240,7 +240,7 @@ class Scene extends Component {
             />
           )}
 
-          {type == "iframe" && (
+          {type == "default" && (
             <Viewport
               {...this.props}
               key={`viewport-${_id}`}

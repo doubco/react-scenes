@@ -3,8 +3,8 @@
   "version": "1.2.0",
   "description":
     "React Scenes is a simple way to create/test your react components inside your app.",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "main": "../untytled/node_modules/react-scenes/lib/index.js",
+  "module": "../untytled/node_modules/react-scenes/lib/index.es.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/doubco/react-scenes"

@@ -66,8 +66,12 @@ class Viewport extends Component {
     }
   }
 
+  componentWillUnmount() {
+    clearTimeout("viewportSize");
+  }
+
   onResize() {
-    const { _id, clearTimer, setTimer } = this.props;
+    const { _id } = this.props;
     if (typeof window !== "undefined") {
       const viewport = document.getElementById(`scenes-viewport-${_id}`);
 
@@ -81,8 +85,8 @@ class Viewport extends Component {
           },
           () => {
             if (this.state.isSizeVisible) {
-              clearTimer("viewportSize");
-              setTimer(
+              clearTimeout("viewportSize");
+              setTimeout(
                 () => {
                   this.setState({ isSizeVisible: false });
                 },
@@ -115,7 +119,7 @@ class Viewport extends Component {
   render() {
     const { ready, width, height, isSizeVisible } = this.state;
 
-    const { config, centered, _id, stylesheet, styleClassNames } = this.props;
+    const { config, centered, _id } = this.props;
 
     const allDevices = this.devices();
 
