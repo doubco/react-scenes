@@ -191,7 +191,7 @@ class Scene extends Component {
     const targetProps = this.targetProps();
     const events = this.events();
 
-    console.log(type);
+    // console.log(type);
 
     const set = this.set;
     const setOptions = this.setOptions;

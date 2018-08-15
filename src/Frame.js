@@ -78,14 +78,14 @@ class Frame extends Component {
   componentWillReceiveProps(nextProps) {
     setTimeout(() => {
       this.updateStyles();
-    }, 1);
+    }, 200);
     // TODO: why we need timeout?
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.updateStyles();
-    }, 1);
+    }, 100);
     // TODO: why we need timeout?
   }
 
