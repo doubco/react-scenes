@@ -179,7 +179,14 @@ class Scene extends Component {
   }
 
   render() {
-    const { config, frame, panels, _id, frameless } = this.props;
+    const {
+      config,
+      frame,
+      panels,
+      _id,
+      frameless,
+      type = "default"
+    } = this.props;
     const { size, options, ready } = this.state;
 
     const targetProps = this.targetProps();
@@ -217,14 +224,15 @@ class Scene extends Component {
           size={size}
           ui={config.ui}
         >
-          {frameless ? (
+          {type == "frameless" && (
             <FramelessViewport
               {...this.props}
               key={`viewport-${_id}`}
               centered={options.centered}
               targetProps={targetProps}
             />
-          ) : (
+          )}
+          {type == "default" && (
             <Viewport
               {...this.props}
               key={`viewport-${_id}`}
