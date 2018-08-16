@@ -110,7 +110,7 @@ class Scene extends Component {
     let props = { theme, ...this.state.props };
 
     events.forEach(key => {
-      props[key] = e => {
+      props[key] = (...args) => {
         function simpleKeys(original) {
           return Object.keys(original).reduce(function(obj, key) {
             obj[key] =
@@ -120,7 +120,7 @@ class Scene extends Component {
         }
         let event = {
           key,
-          args: JSON.stringify(simpleKeys(e), null, 2),
+          args: JSON.stringify(simpleKeys(...args), null, 2),
           date: stringify(new Date())
         };
 

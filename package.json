@@ -1,6 +1,6 @@
 {
   "name": "react-scenes",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description":
     "React Scenes is a simple way to create/test your react components inside your app.",
   "main": "lib/index.js",
