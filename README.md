@@ -1,10 +1,12 @@
-# React Scenes 🌉
+# React Scenes v2🌉
 
 #### React Scenes is a simple way to create/test your react components inside your app.
 
-![demo](https://raw.githubusercontent.com/doubco/react-scenes/master/.github/demo.gif)
+![demo](https://raw.githubusercontent.com/doubco/react-scenes/master/.github/demo.png)
 
-[Live Demo](https://doubco.github.io/react-scenes/)
+[Live Demo v1](https://doubco.github.io/react-scenes/)
+
+Live Demo v2 coming soon.
 
 ### Why?
 
@@ -13,23 +15,6 @@ We tried lots of tools to simplify our in-house react component creation process
 ### Installation
 
 `npm install react-scenes --save`
-
-#### Custom Installation
-
-install cli for react-scenes
-
-`npm install react-scenes-cli -g`
-
-then on your app root folder
-
-`setReactScenes -l "My Scenes"`
-
-this will create an entire seperate app with CRA and all dependencies.
-
-`setReactScenes -l "My Scenes" --bare`
-this will only generate template files.
-
-PS: both will install react-scenes from npm.
 
 ---
 
@@ -48,11 +33,9 @@ class Library extends Component {
     return (
       <Scenes
         title="🌉 My Scenes"
-        config={ {
-          panel: {
-            position: "right"
-          }
-        } }
+        config={{
+            caching: true
+        }}
         scenes={Object.keys(scenes).map(key => scenes[key])}
       />
     );
@@ -72,80 +55,7 @@ export default Library;
 
 #### config `object`
 
-##### panel `object`
-
-> Default value of panel position.
-
-> `panel: {position: : "right"}` `// left, right, top, bottom`
-
-##### ui `boolean`
-
-> Default value of UI Visibility. `ui: true`
-
-##### sizer `boolean`
-
-> Default value of Viewport Sizer Visibility. `sizer: true`
-
 ##### caching `boolean`
-
-> Default value of State Recording. `caching: true`
-
-##### device `string|object`
-
-> Default value or Viewport Device or Size.
-
-> `device: "iphonex"`
-
-> Other pre-defined devices: iphonex, iphone8p, iphone8, iphonese,ipadpro, ipadprol, ipad, ipadl, pixel2
-
-> _PS: "l" for landscape_
-
-> or
-
-> `device: {width: 320, height: 320, unit: "px"}`
-
-#### frame `object`
-
-> We use [react-frame-component](https://github.com/ryanseddon/react-frame-component) for wrapping your components, you can set its options in here.
-
-```
-frame : {
-  initialContent:`<!DOCTYPE html>
-  <html>
-  <head>
-    <style>
-      @import url("https://use.typekit.net/xxx.css");
-      body {
-        font-family: "sofia-pro";
-        font-weight: 400;
-        margin:0;
-        padding:0;
-      }
-
-      strong {
-        font-weight: 600;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="frame"></div>
-  </body>
-  </html>`,
-  mountTarget: "#frame"
-};
-```
-
-plus on some rare cases you may want to inject parent page's stylesheets so just add below to `frame` property.
-
-```
-injectGlobalStylesheets: true
-```
-
-and also if you use `styled-components` add below to `frame` property to inject component style to iframe.
-
-```
-injectStyledComponentsStylesheets: true
-```
 
 #### actions `array`
 
@@ -181,7 +91,7 @@ export default {
   events: ["onClick"],
   options: {
     centered: true,
-    theme: "light" // light, dark, white, black
+    bg: "light" // light, dark, white, black
   },
   docs: `## Bar
   **Hello World**
@@ -199,7 +109,7 @@ export default {
 > Your Component. You can either give your component directly or you can pass a functions.
 
 ```
-target: ({props,state,setState}) => {
+target: ({props, state, setState, pushEvent}) => {
   return (
     <div>
       <Button {...props}>{props.title}</Button>
@@ -223,61 +133,9 @@ target: ({props,state,setState}) => {
 
 > Component documentation or notes.
 
-#### displayName `string`
-
-> Sometimes displayName could be different then what it should be, you can use this if your component name is wrong in Code Panel.
-
-#### stylesheet `string`
-
-> Use this to pass any css to components iframe.
-
-#### styleClassNames `array`
-
-> Use this if you import your css into your js file (webpack).
-
-> Import your css like,
-
-```
-import style from "./style.css"
-style.className = "my-style"
-```
-
-> then add all classNames you need to this property.
-
 ---
 
 ## Built-in Features
-
-Scenes has ;
-
-* `Actions` for global manipulation
-* `Panels` for component manipulation
-
-### Actions
-
-We provide 4 actions; `UI Visibility Toggle`, `State Recording Toggle`, `Viewport Sizer`, `Panel Position Toggle`
-
-You can add custom actions into `config` as `actions` _check for more: custom actions_
-
-#### Toggle UI Visibility 🕶
-
-> Toggles ui elements from scenes. (scene picker, panels etc.)
-
-#### State Recording ⏸
-
-> When state recording is on all controllers data will be cached on local storge for easy testing.
-
-#### Viewport Sizing 📐
-
-> You can change viewport to known devices and you can enter custom width and height.
-
-> PS: _check for more: custom devices_
-
-#### Panel Positioning ➡️
-
-> You can change your panel position on the fly or you can set your default panel postion inside your library `config`.
-
----
 
 ### Panels
 
@@ -359,10 +217,7 @@ controllers.select("primary", [
 
 ### Custom Actions
 
-We exposed `props`, `state`, `store`, `setState` so you can access to alter anything you like.
-
-PS: from `props` you can react `setScene` and `setConfig`.  
-PS2: you can use `store` to set and get things from local storage.
+We exposed all props internally so you can access to alter anything you like.
 
 ```
 <Scenes
@@ -370,11 +225,11 @@ PS2: you can use `store` to set and get things from local storage.
   actions={[
     {
       _id: "say-hi",
-      icon: ({ props, store }) => {
-        return props.config.areWeMet ? "☺️" : "🖖"
+      icon: ({ get }) => {
+        return get("config").areWeMet ? "☺️" : "🖖"
       },
-      onClick: ({ props, state, store, setState }) => {
-        props.setConfig({ weMet: !props.config.areWeMet });
+      onClick: ({ get, set }) => {
+        set("config",{ weMet: !get("config").areWeMet });
       }
     }
   ]}
@@ -383,10 +238,7 @@ PS2: you can use `store` to set and get things from local storage.
 
 ### Custom Panels
 
-We exposed `props`, `state`, `store`, `setState` so you can access to alter anything you like.
-
-PS: from `props` you can react `options`, `setScene`, `setOptions` and `setConfig`.  
-PS2: you can use `store` to set and get things from local storage.
+We exposed all props internally so you can access to alter anything you like.
 
 ```
 <Scenes
@@ -395,17 +247,19 @@ PS2: you can use `store` to set and get things from local storage.
     {
         _id: "my-apples",
         component: MyApples,
-        active: ({ state }) => state.active == "my-panel",
+        active: ({ get }) => get("active").panel == "my-panel",
         icon: "🍎",
         actions: [
           {
             _id: "toggle-apple-color",
-            icon: ({props})=> props.options.apple == "green" ? "🍏" : "🍎",
-            active: ({ props }) => props.options.apple == "green",
-            onClick: ({ props }) => {
-              props.setOptions({
-                ...props.options,
-                centered: props.options.apple == "green" ? "red" : "green"
+            icon: ({ get })=> get("config").options.apple == "green" ? "🍏" : "🍎",
+            active: ({ get }) => get("config").options.apple == "green",
+            onClick: ({ set }) => {
+              set("config",{
+                options:{
+                  ...get("config").options,
+                  centered: props.options.apple == "green" ? "red" : "green"
+                }
               });
             }
           }
@@ -446,13 +300,13 @@ export default (initialValue, foo, bar) => {
 
 There is 4 props you can use;
 
-* `type` `string` is just and identifier.
+- `type` `string` is just and identifier.
 
-* `initialValue` `anything` is the initial value of the input.
+- `initialValue` `anything` is the initial value of the input.
 
-* `process` `function` can be use to alter the input value.
+- `process` `function` can be use to alter the input value.
 
-* `input` `function` has `value`, `set`, `title`, `state`, `setState` to update your data and state of your controller.
+- `input` `function` has `value`, `set`, `title`, `state`, `setState` to update your data and state of your controller.
 
 #### Usage
 
@@ -505,12 +359,12 @@ Pull requests are welcome and please submit bugs 🐛.
 
 ## Contact
 
-* Follow [@doubco](https://twitter.com/doubco) on Twitter
-* Follow [@doubco](http://facebook.com/doubco) on Facebook
-* Follow [@doubco](http://instagram.com/doubco) on Instagram
-* Email <mailto:hi@doub.co>
+- Follow [@doubco](https://twitter.com/doubco) on Twitter
+- Follow [@doubco](http://facebook.com/doubco) on Facebook
+- Follow [@doubco](http://instagram.com/doubco) on Instagram
+- Email <mailto:hi@doub.co>
 
 ## Inspirations
 
-* [storybook](https://storybook.js.org)
-* [react-demo](https://github.com/rpominov/react-demo)
+- [storybook](https://storybook.js.org)
+- [react-demo](https://github.com/rpominov/react-demo)
