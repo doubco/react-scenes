@@ -227,7 +227,7 @@ class Panel extends Component {
                 }, 100);
               }}
             >
-              Minimize
+              {minimized ? "Expand" : "Minimize"}
             </Minimize>
           </Header>
           <TopBar {...this.ui}>
