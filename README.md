@@ -12,7 +12,7 @@ We tried lots of tools to simplify our in-house react component creation process
 
 ### Installation
 
-**To sneak peak our stable beta **
+**To sneak peak our stable beta**
 
 `npm install react-scenes@beta --save`
 
