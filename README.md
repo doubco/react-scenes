@@ -1,16 +1,12 @@
-# React Scenes v2🌉
+# React Scenes v2 🌉
 
 #### React Scenes is a simple way to create/test your react components inside your app.
 
-![demo](https://raw.githubusercontent.com/doubco/react-scenes/master/.github/demo.png)
-
-[Live Demo v1](https://doubco.github.io/react-scenes/)
-
-Live Demo v2 coming soon.
+![demo](https://raw.githubusercontent.com/doubco/react-scenes/master/.github/ss.png)
 
 ### Why?
 
-We tried lots of tools to simplify our in-house react component creation process, but somehow nothing feel right. React Scenes is more simple, easy to use and flexible. (plus built-in support for [styled-components](http://styled-components.com))
+We tried lots of tools to simplify our in-house react component creation process, most of the tools either has separate build process or not enough feature set. React Scenes is more simple, easy to use, flexible and does not need a separate build process, it is plug and play.
 
 ### Installation
 
@@ -24,25 +20,26 @@ We tried lots of tools to simplify our in-house react component creation process
 
 Libraries is just a react component that uses `Scenes`, you can point any route to any library just like normal pages.
 
-```
+```javascript
 import { Scenes } from "react-scenes";
-import scenes from "./index";
+
+import * as all from "./scenes";
+
+let scenes = Object.keys(all).map(key => all[key]);
 
 class Library extends Component {
   render() {
     return (
       <Scenes
-        title="🌉 My Scenes"
+        title="My Library"
         config={{
-            caching: true
+          caching: true
         }}
-        scenes={Object.keys(scenes).map(key => scenes[key])}
+        scenes={scenes}
       />
     );
   }
 }
-
-export default Library;
 ```
 
 #### title `string`
@@ -56,6 +53,8 @@ export default Library;
 #### config `object`
 
 ##### caching `boolean`
+
+This is the default state of caching, can be enable/disable from UI.
 
 #### actions `array`
 
@@ -75,12 +74,12 @@ export default Library;
 
 > Example scene
 
-```
+```javascript
 import { controllers } from "react-scenes";
 
 export default {
   title: "Hello",
-  target: Bar,
+  target: Bar, // or as function ({ props, state, setState }) => {}
   controllers: [
     {
       key: "title",
@@ -140,11 +139,14 @@ target: ({props, state, setState, pushEvent}) => {
 ### Panels
 
 We provide 4 panels;
-You can add custom panels into `config` as `panel` _check for more: custom panels_
-
+You can also add custom panels _check for more: custom panels_
 Every panel can has its own specific actions _check for more: custom panel actions_
 
-#### Controllers 🕹
+#### Scenes 🗂
+
+All scenes you have will appear in here.
+
+#### Controllers 🎚
 
 Conrollers are your main tools to alter your component without direct input.
 
@@ -199,48 +201,27 @@ controllers.select("primary", [
 
 > `controllers.color("#000","hex" // hex, rgb, rgba)`
 
-#### Docs 📌
-
-> Docs are can be component documentation or any other notes. (markdown supported).
-
 #### Events 🚀
 
 > Track your components events, just add event props to your scenes as an array.
 
-#### Code 🤓
+#### Code 📤
 
 > This converts your components code to string for easy sharing.
+
+#### Docs 📓
+
+> Docs are can be component documentation or any other notes. (markdown supported).
 
 ---
 
 ## Customize
 
-### Custom Actions
-
-We exposed all props internally so you can access to alter anything you like.
-
-```
-<Scenes
-  ...
-  actions={[
-    {
-      _id: "say-hi",
-      icon: ({ get }) => {
-        return get("config").areWeMet ? "☺️" : "🖖"
-      },
-      onClick: ({ get, set }) => {
-        set("config",{ weMet: !get("config").areWeMet });
-      }
-    }
-  ]}
-/>
-```
-
 ### Custom Panels
 
 We exposed all props internally so you can access to alter anything you like.
 
-```
+```javascript
 <Scenes
   ...
   panels={[
@@ -273,7 +254,7 @@ We exposed all props internally so you can access to alter anything you like.
 
 Example: myApp/.../myCustomController.js
 
-```
+```javascript
 import React, { Component } from "react";
 
 export default (initialValue, foo, bar) => {
@@ -287,15 +268,15 @@ export default (initialValue, foo, bar) => {
           <input
             value={value}
             onChange={e => set(e.target.value)}
-            onFocus={e => setState({focused: true})}
-            onBlur={e => setState({focused: false})}
+            onFocus={e => setState({ focused: true })}
+            onBlur={e => setState({ focused: false })}
           />
           {focused ? "Focused" : "Not Focused"}
         </div>
-      )
+      );
     }
-  }
-}
+  };
+};
 ```
 
 There is 4 props you can use;
@@ -332,7 +313,7 @@ export default {
 
 to add custom device sizes, inject it to `Scenes` like below.
 
-```
+```javascript
 <Scenes
   ...
   devices={{

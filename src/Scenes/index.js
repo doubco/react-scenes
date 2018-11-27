@@ -63,12 +63,9 @@ class Scenes extends Component {
   }
 
   get ui() {
-    const { title = "React Scenes" } = this.props;
-
     return {
       ...this.config,
-      ...this.scene.options,
-      title
+      ...this.scene.options
     };
   }
 
@@ -148,6 +145,7 @@ class Scenes extends Component {
   }
 
   render() {
+    const { title = "React Scenes" } = this.props;
     const { ready } = this.state;
     if (!ready) return null;
     return (
@@ -165,6 +163,7 @@ class Scenes extends Component {
         <ThemeProvider theme={theme}>
           <Panel
             {...this.ui}
+            title={title}
             devices={this.devices}
             panels={this.panels}
             scenes={this.scenes}
