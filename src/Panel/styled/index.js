@@ -103,6 +103,7 @@ export const PanelTitle = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
   justify-content: space-between;
   height: ${size`item.height|px`};
   padding: ${size`item.padding|px`};
