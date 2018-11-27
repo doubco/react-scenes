@@ -4,4 +4,4 @@
 *.sublime-workspace
 *.sublime-project
 
-/example/my-library/node_modules/
+/examples/my-library/node_modules/

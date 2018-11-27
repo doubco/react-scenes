@@ -253,7 +253,12 @@ class Panel extends Component {
 
           <Panels id="panel-container" {...this.ui}>
             {active.panel != "scenes" && (
-              <PanelTitle {...this.ui}>
+              <PanelTitle
+                {...this.ui}
+                onClick={() => {
+                  set("active", { panel: "scenes" });
+                }}
+              >
                 {scene.title.split(">").length > 1 ? (
                   <Fragment>
                     <div>{scene.title.split(">")[1]}</div>
