@@ -10,9 +10,9 @@ export const ViewportContainer = styled.div`
   height: 100%;
 `;
 
-export const ViewportWrapper = styled.div.attrs({
-  style: p => ({ width: p.w, minHeight: p.h })
-})`
+export const ViewportWrapper = styled.div.attrs(p => ({
+  style: { width: p.w, minHeight: p.h }
+}))`
   position: relative;
   margin: auto;
   border: ${cond({

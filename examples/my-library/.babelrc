@@ -6,8 +6,7 @@
       {
         "root": ["./"],
         "alias": {
-          "react": "react",
-          "react-dom": "react-dom"
+          "react-scenes": "../../lib"
         }
       }
     ]

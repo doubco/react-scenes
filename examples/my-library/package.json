@@ -6,15 +6,13 @@
   "dependencies": {
     "next": "^7.0.2",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scenes": "file:../../lib",
-    "styled-components": "^4.1.1"
+    "react-dom": "^16.6.3"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next build && next export"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.1.1"

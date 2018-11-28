@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { ThemeProvider } from "styled-components";
 
 import { Store } from "../utils/store";
 import slugify from "../utils/slugify";
 
 import { theme } from "../theme";
+import { DocumentStyle } from "../theme/Document";
 
 import Viewport from "../Viewport";
 import Panel from "../Panel";
@@ -123,7 +124,7 @@ class Scenes extends Component {
     if (scene._id) {
       return { ...scene, ...cached };
     } else {
-      return this.scenes[0];
+      return this.scenes[0] || {};
     }
   }
 
@@ -145,35 +146,38 @@ class Scenes extends Component {
   }
 
   render() {
-    const { title = "React Scenes" } = this.props;
+    const { title = "React Scenes", standalone } = this.props;
     const { ready } = this.state;
     if (!ready) return null;
     return (
-      <ScenesWrapper {...this.ui}>
-        <Viewport
-          {...this.ui}
-          devices={this.devices}
-          panels={this.panels}
-          scenes={this.scenes}
-          scene={this.scene}
-          config={this.config}
-          set={this.set}
-          get={this.get}
-        />
+      <Fragment>
+        {standalone && <DocumentStyle />}
         <ThemeProvider theme={theme}>
-          <Panel
-            {...this.ui}
-            title={title}
-            devices={this.devices}
-            panels={this.panels}
-            scenes={this.scenes}
-            scene={this.scene}
-            config={this.config}
-            set={this.set}
-            get={this.get}
-          />
+          <ScenesWrapper {...this.ui}>
+            <Viewport
+              {...this.ui}
+              devices={this.devices}
+              panels={this.panels}
+              scenes={this.scenes}
+              scene={this.scene}
+              config={this.config}
+              set={this.set}
+              get={this.get}
+            />
+            <Panel
+              {...this.ui}
+              title={title}
+              devices={this.devices}
+              panels={this.panels}
+              scenes={this.scenes}
+              scene={this.scene}
+              config={this.config}
+              set={this.set}
+              get={this.get}
+            />
+          </ScenesWrapper>
         </ThemeProvider>
-      </ScenesWrapper>
+      </Fragment>
     );
   }
 }

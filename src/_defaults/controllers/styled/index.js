@@ -23,9 +23,9 @@ export const SmallInputWrapper = styled(InputWrapper)`
   width: 50%;
 `;
 
-export const Textarea = styled.textarea.attrs({
+export const Textarea = styled.textarea.attrs(p => ({
   placeholder: "Type something."
-})`
+}))`
   border: 0;
   width: 100%;
   font-size: ${size`input:value.size|px`};
@@ -113,10 +113,10 @@ export const ColorPickerButton = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.01);
 `;
 
-export const TextInput = styled.input.attrs({
-  type: p => p.type || "text",
+export const TextInput = styled.input.attrs(p => ({
+  type: p.type || "text",
   placeholder: "Type something."
-})`
+}))`
   display: block;
   border: 0;
   font-weight: 600;
@@ -129,7 +129,7 @@ export const TextInput = styled.input.attrs({
   font-size: ${size`input:value.size|px`};
 `;
 
-export const Range = styled.input.attrs({ type: "range" })`
+export const Range = styled.input.attrs(p => ({ type: "range" }))`
   border: 0;
   width: 100%;
   margin: 0;

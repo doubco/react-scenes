@@ -4,9 +4,9 @@ import UI from "../../../theme";
 
 const { cond, is, get, variant, size, userSelect } = UI;
 
-export const ResizerRange = styled.input.attrs({
+export const ResizerRange = styled.input.attrs(p => ({
   type: "range"
-})`
+}))`
   border: 0;
   margin-left: ${size`input.margin|px`};
   margin-right: ${size`input.margin|px`};

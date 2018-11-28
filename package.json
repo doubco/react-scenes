@@ -35,12 +35,13 @@
     "react-draggable": "^3.0.5",
     "react-onclickoutside": "^6.7.1",
     "react-syntax-highlighter": "^7.0.4",
-    "styled-lib": "^0.0.1"
+    "styled-lib": "^0.0.1",
+    "styled-reset": "^1.6.1"
   },
   "peerDependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "styled-components": "^4.1.1"
+    "react": ">= 16",
+    "react-dom": ">= 16",
+    "styled-components": ">= 4"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -53,11 +54,14 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
     "prettier": "^1.14.3",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-url": "^2.0.0"
+    "rollup-plugin-url": "^2.0.0",
+    "styled-components": "^4.1.1"
   }
 }
