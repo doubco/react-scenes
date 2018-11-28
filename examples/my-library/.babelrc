@@ -1,0 +1,15 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "react": "react",
+          "react-dom": "react-dom"
+        }
+      }
+    ]
+  ]
+}
