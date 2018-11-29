@@ -1,9 +1,5 @@
 /node_modules/
 /lib/
-
-*.sublime-workspace
-*.sublime-project
-
-/examples/my-library/.next
+/examples/my-library/.next/
 /examples/my-library/node_modules/
 /examples/my-library/out/
