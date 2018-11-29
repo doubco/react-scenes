@@ -6,7 +6,16 @@ import Button from "../Button";
 const ButtonScene = {
   title: "Buttons>Default",
   target: ({ props, state, setState, pushEvent }) => {
-    return <Button {...props}>{props.title}</Button>;
+    return (
+      <Button
+        {...props}
+        onMouseLeave={() => {
+          pushEvent("customEvent", { hello: "world" });
+        }}
+      >
+        {props.title}
+      </Button>
+    );
   },
   options: {
     bg: "light",
@@ -23,6 +32,16 @@ const ButtonScene = {
       key: "color",
       title: "color",
       controller: controllers.color()
+    },
+    {
+      key: "size",
+      title: "select",
+      controller: controllers.select("big", ["", "big", "small"])
+    },
+    {
+      key: "disabled",
+      title: "disabled",
+      controller: controllers.boolean()
     }
   ],
   docs: "Hello World"

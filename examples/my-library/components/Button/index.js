@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonWrapper = styled.div.attrs(p => ({
-  style: { backgroundColor: p.color }
+  style: { backgroundColor: p.disabled ? "#ccc" : p.color }
 }))`
   font-family: sans-serif;
-  cursor: pointer;
+  cursor: ${p => (p.disabled ? "default" : "pointer")};
   min-width: 128px;
   padding: 8px;
-  height: 32px;
+  height: ${p => (p.size == "big" ? 48 : 32)}px;
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -18,15 +18,19 @@ const ButtonWrapper = styled.div.attrs(p => ({
   color: #fff;
   transition: 0.2s;
   &:hover {
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: ${p => !p.disabled && " 0px 8px 8px rgba(0, 0, 0, 0.1)"};
   }
   &:active {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: ${p => !p.disabled && " 0px 2px 2px rgba(0, 0, 0, 0.1)"};
   }
 `;
 
-const Button = ({ title = "Button", color = "#5DAEF2" }) => {
-  return <ButtonWrapper color={color}>{title}</ButtonWrapper>;
+const Button = ({ title = "Button", color = "#5DAEF2", ...rest }) => {
+  return (
+    <ButtonWrapper color={color} {...rest}>
+      {title}
+    </ButtonWrapper>
+  );
 };
 
 Button.displayName = "Button";
