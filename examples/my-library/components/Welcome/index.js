@@ -18,10 +18,10 @@ const ButtonWrapper = styled.div.attrs(p => ({
   color: #fff;
   transition: 0.2s;
   &:hover {
-    box-shadow: ${p => !p.disabled && "0px 8px 8px rgba(0, 0, 0, 0.1)"};
+    box-shadow: ${p => !p.disabled && " 0px 8px 8px rgba(0, 0, 0, 0.1)"};
   }
   &:active {
-    box-shadow: ${p => !p.disabled && "0px 2px 2px rgba(0, 0, 0, 0.1)"};
+    box-shadow: ${p => !p.disabled && " 0px 2px 2px rgba(0, 0, 0, 0.1)"};
   }
 `;
 

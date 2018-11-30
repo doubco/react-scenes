@@ -9825,8 +9825,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "/Users/berkaey/Development/react-scenes/examples/my-library/components/Button/index.js";
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  font-family: sans-serif;\n  cursor: pointer;\n  min-width: 128px;\n  padding: 8px;\n  height: 32px;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);\n  color: #fff;\n  transition: 0.2s;\n  &:hover {\n    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);\n  }\n  &:active {\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-family: sans-serif;\n  cursor: ", ";\n  min-width: 128px;\n  padding: 8px;\n  height: ", "px;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);\n  color: #fff;\n  transition: 0.2s;\n  &:hover {\n    box-shadow: ", ";\n  }\n  &:active {\n    box-shadow: ", ";\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -9842,24 +9848,35 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var ButtonWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.attrs(function (p) {
   return {
     style: {
-      backgroundColor: p.color
+      backgroundColor: p.disabled ? "#ccc" : p.color
     }
   };
-})(_templateObject());
+})(_templateObject(), function (p) {
+  return p.disabled ? "default" : "pointer";
+}, function (p) {
+  return p.size == "big" ? 48 : 32;
+}, function (p) {
+  return !p.disabled && "0px 8px 8px rgba(0, 0, 0, 0.1)";
+}, function (p) {
+  return !p.disabled && "0px 2px 2px rgba(0, 0, 0, 0.1)";
+});
 
 var Button = function Button(_ref) {
   var _ref$title = _ref.title,
       title = _ref$title === void 0 ? "Button" : _ref$title,
       _ref$color = _ref.color,
-      color = _ref$color === void 0 ? "#5DAEF2" : _ref$color;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ButtonWrapper, {
-    color: color,
+      color = _ref$color === void 0 ? "#5DAEF2" : _ref$color,
+      rest = _objectWithoutProperties(_ref, ["title", "color"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ButtonWrapper, _extends({
+    color: color
+  }, rest, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 30
     },
     __self: this
-  }, title);
+  }), title);
 };
 
 Button.displayName = "Button";
@@ -9867,21 +9884,22 @@ Button.displayName = "Button";
 
 /***/ }),
 
-/***/ "./components/Library/index.js":
-/*!*************************************!*\
-  !*** ./components/Library/index.js ***!
-  \*************************************/
-/*! exports provided: default */
+/***/ "./components/Button/scene.js":
+/*!************************************!*\
+  !*** ./components/Button/scene.js ***!
+  \************************************/
+/*! exports provided: ButtonScene */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonScene", function() { return ButtonScene; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../lib */ "../../lib/index.js");
 /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_lib__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Button */ "./components/Button/index.js");
-var _jsxFileName = "/Users/berkaey/Development/react-scenes/examples/my-library/components/Library/index.js";
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index */ "./components/Button/index.js");
+var _jsxFileName = "/Users/berkaey/Development/react-scenes/examples/my-library/components/Button/scene.js";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -9895,7 +9913,12 @@ var ButtonScene = {
         state = _ref.state,
         setState = _ref.setState,
         pushEvent = _ref.pushEvent;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, {
+      onMouseLeave: function onMouseLeave() {
+        pushEvent("customEvent", {
+          hello: "world"
+        });
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 9
@@ -9916,21 +9939,162 @@ var ButtonScene = {
     key: "color",
     title: "color",
     controller: _lib__WEBPACK_IMPORTED_MODULE_1__["controllers"].color()
+  }, {
+    key: "size",
+    title: "select",
+    controller: _lib__WEBPACK_IMPORTED_MODULE_1__["controllers"].select("big", ["", "big", "small"])
+  }, {
+    key: "disabled",
+    title: "disabled",
+    controller: _lib__WEBPACK_IMPORTED_MODULE_1__["controllers"].boolean()
   }],
-  docs: "Hello World"
+  docs: "#### Button\n\n`title` _string_\nEnter button title here.\n\n`color` _string_\nsupported formats: RGB, RGBA, HSL, HSLA, HEX\n\n`size` _string_\n\noptions: big and small\n\n`disabled` _boolean_\n"
 };
+
+/***/ }),
+
+/***/ "./components/Library/index.js":
+/*!*************************************!*\
+  !*** ./components/Library/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../lib */ "../../lib/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_lib__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Button_scene__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Button/scene */ "./components/Button/scene.js");
+/* harmony import */ var _Welcome_scene__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Welcome/scene */ "./components/Welcome/scene.js");
+var _jsxFileName = "/Users/berkaey/Development/react-scenes/examples/my-library/components/Library/index.js";
+
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_lib__WEBPACK_IMPORTED_MODULE_1__["Scenes"], {
     title: "My Scenes",
     standalone: true,
-    scenes: [ButtonScene],
+    scenes: [_Welcome_scene__WEBPACK_IMPORTED_MODULE_3__["WelcomeScene"], _Button_scene__WEBPACK_IMPORTED_MODULE_2__["ButtonScene"]],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 9
     },
     __self: this
   });
 });
+
+/***/ }),
+
+/***/ "./components/Welcome/index.js":
+/*!*************************************!*\
+  !*** ./components/Welcome/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/berkaey/Development/react-scenes/examples/my-library/components/Welcome/index.js";
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  font-family: sans-serif;\n  cursor: ", ";\n  min-width: 128px;\n  padding: 8px;\n  height: ", "px;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);\n  color: #fff;\n  transition: 0.2s;\n  &:hover {\n    box-shadow: ", ";\n  }\n  &:active {\n    box-shadow: ", ";\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var ButtonWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.attrs(function (p) {
+  return {
+    style: {
+      backgroundColor: p.disabled ? "#ccc" : p.color
+    }
+  };
+})(_templateObject(), function (p) {
+  return p.disabled ? "default" : "pointer";
+}, function (p) {
+  return p.size == "big" ? 48 : 32;
+}, function (p) {
+  return !p.disabled && " 0px 8px 8px rgba(0, 0, 0, 0.1)";
+}, function (p) {
+  return !p.disabled && " 0px 2px 2px rgba(0, 0, 0, 0.1)";
+});
+
+var Button = function Button(_ref) {
+  var _ref$title = _ref.title,
+      title = _ref$title === void 0 ? "Button" : _ref$title,
+      _ref$color = _ref.color,
+      color = _ref$color === void 0 ? "#5DAEF2" : _ref$color,
+      rest = _objectWithoutProperties(_ref, ["title", "color"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ButtonWrapper, _extends({
+    color: color
+  }, rest, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }), title);
+};
+
+Button.displayName = "Button";
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
+/***/ "./components/Welcome/scene.js":
+/*!*************************************!*\
+  !*** ./components/Welcome/scene.js ***!
+  \*************************************/
+/*! exports provided: WelcomeScene */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomeScene", function() { return WelcomeScene; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../lib */ "../../lib/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_lib__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ */ "./components/Welcome/index.js");
+
+
+
+var WelcomeScene = {
+  title: "Welcome>Default",
+  target: ___WEBPACK_IMPORTED_MODULE_2__["default"],
+  options: {
+    bg: "light",
+    centered: true
+  },
+  events: ["onClick"],
+  controllers: [{
+    key: "theme",
+    title: "select",
+    controller: _lib__WEBPACK_IMPORTED_MODULE_1__["controllers"].select("dark", ["", "dark", "light"])
+  }],
+  docs: "This could be our little documentation for this components. *Markdown* **supported**."
+};
 
 /***/ }),
 
