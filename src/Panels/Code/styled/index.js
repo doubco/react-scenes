@@ -1,0 +1,44 @@
+import styled from "styled-components";
+import UI from "../../../theme";
+const { cond, is, get, variant, size } = UI;
+
+export const CodeContainer = styled.div`
+  width: 100%;
+  height: calc(100% - ${size`item:height|px`});
+  overflow: auto;
+  position: relative;
+  padding: ${size`item:padding|px`};
+  line-height: ${size`item:title.size|px`};
+
+  & > pre {
+    height: 100%;
+    margin: 0 !important;
+    background: none !important;
+    * {
+      background: none !important;
+    }
+    & > code {
+      font-size: ${size`item:title.size|px`};
+    }
+  }
+`;
+
+export const CopyButton = styled.div`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  line-height: 14px;
+  font-size: 13px;
+  padding: 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:active {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  ${p => (p.copied ? `background: black` : `background: rgba(0, 0, 0, 0.02)`)};
+
+  ${p => (p.copied ? `color: white` : `color: rgba(0, 0, 0, 0.2)`)};
+`;

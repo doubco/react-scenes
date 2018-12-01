@@ -5,5 +5,5 @@ require
 
 module.exports = {
   Scenes: require("./Scenes"),
-  controllers: require("./defaults/controllers")
+  controllers: require("./_defaults/controllers")
 };

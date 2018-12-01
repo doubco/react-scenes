@@ -1,7 +1,6 @@
 /node_modules/
 /lib/
-
-*.sublime-workspace
-*.sublime-project
-
-/.scenes/node_modules/
+/examples/my-library/.next/
+/examples/my-library/node_modules/
+/examples/my-library/out/
+/examples/my-library/dist/
