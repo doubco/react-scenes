@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "alias": "react-scenes.doub.co",
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
+}

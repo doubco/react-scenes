@@ -1,38 +1,62 @@
 import React from "react";
 import styled from "styled-components";
 
-const ButtonWrapper = styled.div.attrs(p => ({
-  style: { backgroundColor: p.disabled ? "#ccc" : p.color }
-}))`
+const WelcomeWrapper = styled.div`
   font-family: sans-serif;
-  cursor: ${p => (p.disabled ? "default" : "pointer")};
-  min-width: 128px;
-  padding: 8px;
-  height: ${p => (p.size == "big" ? 48 : 32)}px;
-  border-radius: 2px;
+  padding: 16px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  color: #fff;
   transition: 0.2s;
-  &:hover {
-    box-shadow: ${p => !p.disabled && " 0px 8px 8px rgba(0, 0, 0, 0.1)"};
-  }
-  &:active {
-    box-shadow: ${p => !p.disabled && " 0px 2px 2px rgba(0, 0, 0, 0.1)"};
-  }
+  background: ${p => (p.theme == "dark" ? "#282C34" : "#f0f0f0")};
+  border-radius: 4px;
 `;
 
-const Button = ({ title = "Button", color = "#5DAEF2", ...rest }) => {
-  return (
-    <ButtonWrapper color={color} {...rest}>
-      {title}
-    </ButtonWrapper>
-  );
-};
+const Title = styled.div`
+  font-size: 24px;
+  padding: 8px;
+  font-weight: bold;
+  color: #f1576d;
+`;
 
-Button.displayName = "Button";
+const Description = styled.div`
+  font-size: 16px;
+  padding: 8px;
+  color: #b050ba;
+`;
 
-export default Button;
+const Feature = styled.li`
+  font-size: 16px;
+  padding: 8px;
+  color: #d2b270;
+`;
+
+const Features = styled.div`
+  font-size: 16px;
+  padding: 8px;
+`;
+
+class Welcome extends React.Component {
+  render() {
+    const {
+      title = "Title",
+      description = "Description",
+      features = ["Feature"]
+    } = this.props;
+    return (
+      <WelcomeWrapper {...this.props}>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <Features>
+          {features.map((f, idx) => {
+            return <Feature key="idx">{f}</Feature>;
+          })}
+        </Features>
+      </WelcomeWrapper>
+    );
+  }
+}
+Welcome.displayName = "Welcome";
+export default Welcome;
