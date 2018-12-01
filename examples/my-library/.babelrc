@@ -1,14 +1,3 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "react-scenes": "../../lib"
-        }
-      }
-    ]
-  ]
+  "presets": ["next/babel"]
 }

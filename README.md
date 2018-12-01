@@ -2,6 +2,8 @@
 
 **React Scenes is a simple way to create/test your react components inside your app.**
 
+Live demo at https://react-scenes.doub.co
+
 ### Why?
 
 We tried lots of tools to simplify our in-house react component creation process, most of the tools either has separate build process or not enough feature set. React Scenes is more simple, easy to use, flexible and does not need a separate build process, it is plug and play.

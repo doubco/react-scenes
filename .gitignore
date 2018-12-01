@@ -3,3 +3,4 @@
 /examples/my-library/.next/
 /examples/my-library/node_modules/
 /examples/my-library/out/
+/examples/my-library/dist/

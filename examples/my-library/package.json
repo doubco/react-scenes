@@ -6,9 +6,12 @@
   "dependencies": {
     "next": "^7.0.2",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-scenes": "^2.0.8",
+    "styled-components": "^4.1.2"
   },
   "scripts": {
+    "now-build": "next build && next export -o dist",
     "dev": "next",
     "build": "next build",
     "start": "next start",
