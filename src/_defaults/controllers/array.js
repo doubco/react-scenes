@@ -20,6 +20,9 @@ export default initialValue => {
 
       return json;
     },
+    check: value => {
+      return is.array(value) ? value : [];
+    },
     input: ({ value, set, title, ui }) => {
       let array = value;
       let isArray;

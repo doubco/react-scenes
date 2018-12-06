@@ -45,14 +45,17 @@ class Welcome extends React.Component {
       description = "Description",
       features = ["Feature"]
     } = this.props;
+    console.log("features", features);
     return (
       <WelcomeWrapper {...this.props}>
         <Title>{title}</Title>
         <Description>{description}</Description>
         <Features>
-          {features.map((f, idx) => {
-            return <Feature key="idx">{f}</Feature>;
-          })}
+          {features && features.length
+            ? features.map((f, idx) => {
+                return <Feature key={idx}>{f}</Feature>;
+              })
+            : null}
         </Features>
       </WelcomeWrapper>
     );

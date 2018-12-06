@@ -29,7 +29,7 @@ class ControllersPanel extends Component {
                     : props[key],
                 set: value => {
                   let newProps = { ...sceneData.props };
-                  newProps[key] = value;
+                  newProps[key] = controller.process(value);
 
                   set(
                     "scenesData",

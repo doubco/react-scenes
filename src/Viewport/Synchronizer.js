@@ -22,7 +22,14 @@ class TargetComponent extends Component {
     );
   }
 
+  // componentDidCatch(error, info) {
+  //   this.setState({ hasError: true });
+  // }
+
   render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
     const state = this.state.states;
     if (this.isStateless) {
       return this.target({

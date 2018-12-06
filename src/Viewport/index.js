@@ -23,8 +23,14 @@ class Viewport extends Component {
 
     if (controllers.length) {
       controllers.forEach(({ controller, key }) => {
-        if (initialValues[key] == undefined) {
-          initialValues[key] = controller.process(controller.initialValue);
+        let value = initialValues[key];
+        if (value == undefined) {
+          value = controller.initialValue;
+        }
+        if (controller.check) {
+          initialValues[key] = controller.check(controller.process(value));
+        } else {
+          initialValues[key] = controller.process(value);
         }
       });
     }

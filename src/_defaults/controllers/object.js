@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import is from "wtf-is-this";
 
-import stringify from "../../utils/stringify";
-
 import { InputWrapper, InputTitle, Textarea } from "./styled";
 
 export default initialValue => {
@@ -19,7 +17,14 @@ export default initialValue => {
       }
       json = JSON.parse(JSON.stringify(json));
 
-      return json;
+      if (is.object(json)) {
+        return json;
+      } else {
+        return {};
+      }
+    },
+    check: value => {
+      return is.object(value) ? value : {};
     },
     input: ({ value, set, title, ui }) => {
       let array = value;
