@@ -1,6 +1,6 @@
 {
   "name": "react-scenes",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "React Scenes is a simple way to create/test your react components inside your app.",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -53,6 +53,7 @@
     "eslint": "^5.6.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.14.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

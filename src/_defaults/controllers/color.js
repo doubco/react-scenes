@@ -17,7 +17,7 @@ export default (initialValue, type = "rgba") => {
     type: "color",
     initialValue,
     process: val => val,
-    input: props => {
+    input: ({ value, set, title, state, setState, ui, type }) => {
       return (
         <InputWrapper {...ui}>
           <InputTitle {...ui}>{title}</InputTitle>
