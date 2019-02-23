@@ -17,7 +17,8 @@ export default (initialValue, type = "rgba") => {
     type: "color",
     initialValue,
     process: val => val,
-    input: ({ value, set, title, state, setState, ui, type }) => {
+    input: props => {
+      const { value, set, title, state, setState, ui } = props;
       return (
         <InputWrapper {...ui}>
           <InputTitle {...ui}>{title}</InputTitle>
@@ -43,7 +44,7 @@ export default (initialValue, type = "rgba") => {
 
           <ColorInput visible={state.visible == title}>
             <ChromePicker
-              {...this.props}
+              {...props}
               color={value}
               onChange={({ hex, rgb }) => {
                 let string = "";
