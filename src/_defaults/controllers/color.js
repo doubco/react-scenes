@@ -18,7 +18,7 @@ class ColorPicker extends Component {
   }
   render() {
     return (
-      <ColorInput visible={this.props.state.visible}>
+      <ColorInput visible={this.props.state.visible == this.props.title}>
         <ChromePicker {...this.props} />
       </ColorInput>
     );
@@ -41,7 +41,7 @@ export default (initialValue, type = "rgba") => {
             value={value}
             onChange={e => set(e.target.value)}
             onFocus={() => {
-              setState({ visible: !state.visible });
+              setState({ visible: title != state.visible ? title : title });
             }}
           />
 
@@ -49,11 +49,12 @@ export default (initialValue, type = "rgba") => {
             {...ui}
             color={value}
             onClick={() => {
-              setState({ visible: !state.visible });
+              setState({ visible: title == state.visible ? false : title });
             }}
           />
 
           <ColorPickerComponent
+            title={title}
             ui={ui}
             state={state}
             setState={setState}
